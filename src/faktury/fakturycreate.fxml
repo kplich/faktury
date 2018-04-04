@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane minWidth="540.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="faktury.FakturyCreateController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" maxHeight="40.0" prefHeight="40.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label alignment="CENTER" maxHeight="40.0" prefHeight="40.0" prefWidth="159.0" text="Edycja faktury" HBox.hgrow="NEVER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <GridPane hgap="5.0" prefHeight="120.0" prefWidth="332.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="275.0" minWidth="100.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="471.0" minWidth="10.0" prefWidth="275.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Numer" />
+                  <Label text="Data wystawienia" GridPane.rowIndex="1" />
+                  <Label text="Data sprzedaży" GridPane.rowIndex="2" />
+                  <TextField fx:id="numerField" maxWidth="150.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                  <DatePicker fx:id="dataWystField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="dataSprzField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Czas płatności" GridPane.rowIndex="3" />
+                  <TextField fx:id="iloscDniField" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </GridPane>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Dodane zlecenia:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="deleteZlecenieButton" mnemonicParsing="false" onAction="#deleteZlecenieClicked" text="Usuń" GridPane.columnIndex="1" />
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" right="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <ListView fx:id="zleceniaList" prefHeight="159.0" prefWidth="187.0" />
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Label text="Suma: ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="wartoscLabel">
+                     <font>
+                        <Font name="System Italic" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets right="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="Dodaj zlecenie:" />
+                  <ComboBox fx:id="zleceniaNieuzyteField" prefWidth="150.0" />
+                  <Button fx:id="dodajZlecenieButton" mnemonicParsing="false" onAction="#dodajZlecenieClicked" text="Dodaj" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" text="Zapisz" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Anuluj" />
+               </children>
+               <padding>
+                  <Insets top="110.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
