@@ -1,0 +1,4 @@
+73397	Koprivnica HR - Blonie PL	2248.58	4/2018
+73407	Jarosty PL - Zagreb HR	4285.03	4/2018
+73549	Koprivnica PL - Blonie PL	2261.88	4/2018
+73579	Jarosty PL - Zagreb HR	4310.38	5/2018

@@ -1,0 +1,57 @@
+<tr style='height:30.0pt'>
+  <td width=102 style='width:76.8pt;border:solid windowtext 1.0pt;border-top:
+  none;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>numerZlecenia</span></p>
+  </td>
+  <td width=190 style='width:142.55pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>nazwaZlecenia</span></p>
+  </td>
+  <td width=57 style='width:42.8pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>szt.</span></p>
+  </td>
+  <td width=47 style='width:35.45pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>1</span></p>
+  </td>
+  <td width=111 style='width:82.95pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>wartoscZlecenia</span></p>
+  </td>
+  <td width=46 style='width:34.55pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>23%</span></p>
+  </td>
+  <td width=81 style='width:60.95pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>wartoscVat</span></p>
+  </td>
+  <td width=111 style='width:82.95pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  color:black'>wartoscZlecenia</span></p>
+  </td>
+ </tr>
