@@ -2,7 +2,6 @@ package controller;
 
 import framework.*;
 import javafx.application.*;
-import javafx.scene.control.*;
 import javafx.stage.*;
 
 import java.io.*;
@@ -32,10 +31,10 @@ public class Main extends Application {
 		//wczytujemy dane
 		try {
 			database = new Database(PLIK_ZLECENIA, PLIK_FAKTURY);
-			showConfirmationAlert("Wczytywanie zakończone powodzeniem!");
+			Logging.showConfirmationAlert("Wczytywanie zakończone powodzeniem!");
 		}
 		catch (FileNotFoundException e) {
-			showErrorAlert(e.getMessage());
+			Logging.showErrorAlert(e.getMessage());
 			System.exit(-1);
 		}
 
@@ -50,7 +49,7 @@ public class Main extends Application {
 			manager.registerScene("faktury_create", new SceneWrapper("/faktury/fakturycreate.fxml", this, database));
 		}
 		catch (IOException e) {
-			showErrorAlert("Blad wczytywania interfejsu" + e.getCause().toString());
+			Logging.showErrorAlert("Blad wczytywania interfejsu" + e.getCause().toString());
 			System.exit(-1);
 		}
 
@@ -68,7 +67,7 @@ public class Main extends Application {
 			database.zapiszFaktury();
 		}
 		catch (FileNotFoundException e) {
-			showErrorAlert(e.getMessage());
+			Logging.showErrorAlert(e.getMessage());
 		}
 	}
 
@@ -83,7 +82,7 @@ public class Main extends Application {
 			manager.setCurrent(id); //TODO: enum dla ID scen
 		}
 		catch (NoSuchElementException e) {
-			showErrorAlert(e.getMessage());
+			Logging.showErrorAlert(e.getMessage());
 			return;
 		}
 
@@ -100,21 +99,4 @@ public class Main extends Application {
 		return manager;
 	}
 
-	public static void showErrorAlert(String msg) {
-		Alert alert = new Alert(Alert.AlertType.ERROR);
-		alert.setTitle("Blad.");
-		alert.setHeaderText(null);
-		alert.setContentText(msg);
-
-		alert.showAndWait();
-	}
-
-	public static void showConfirmationAlert(String msg) {
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle(null);
-		alert.setHeaderText(null);
-		alert.setContentText(msg);
-
-		alert.showAndWait();
-	}
 }

@@ -136,7 +136,6 @@ public class ZleceniaController implements Controller {
 
 	@FXML
 	private void saveButtonClicked() {
-		System.out.println("save button clicked");
 		String numer = numerField.getText();
 		String nazwa = nazwaField.getText();
 		String wartosc = wartoscField.getText();
@@ -150,7 +149,7 @@ public class ZleceniaController implements Controller {
 					database.dodajZlecenie(temp);
 				}
 				catch (InvalidObjectException e) {
-					System.err.println(e.getMessage());
+					Logging.showErrorAlert(e.getMessage());
 				}
 				break;
 			}
@@ -161,15 +160,16 @@ public class ZleceniaController implements Controller {
 
 				try {
 					temp = Zlecenie.validate(numer, nazwa, wartosc);
+					database.dodajZlecenie(selectedIndex, temp);
 				}
 				catch (InvalidObjectException e) {
-					System.err.println(e.getMessage());
+					Logging.showErrorAlert(e.getMessage());
+
 					database.dodajZlecenie(selectedIndex, copy);
 					setToDefault();
 					return;
 				}
 
-				database.dodajZlecenie(selectedIndex, temp);
 				break;
 			}
 		}
