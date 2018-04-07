@@ -69,8 +69,6 @@ public class FakturyViewController implements Controller {
 
 	@Override
 	public void close() {
-		System.out.println("FakturyViewController.close()");
-
 		try {
 			database.zapiszZlecenia();
 			database.zapiszFaktury();

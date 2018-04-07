@@ -10,7 +10,14 @@ import javafx.scene.layout.*;
 import java.io.*;
 
 public class ZleceniaController implements Controller {
+	/**
+	 * A reference to the Main class, used in order to switch scenes.
+	 */
 	private Main main;
+
+	/**
+	 * A reference to the database containing all the orders and invoices.
+	 */
 	private Database database;
 
 	@FXML private ListView<Zlecenie> listaZlecen;
@@ -27,6 +34,11 @@ public class ZleceniaController implements Controller {
 	@FXML private Button saveButton;
 	@FXML private Button cancelButton;
 
+	/**
+	 * Initializes the controller. Sets up the listeners of fields in the right panel to show details of each order.
+	 * @param main a reference to the main application class
+	 * @param database a reference to the database
+	 */
     @Override
     public void initialize(Main main, Database database) {
 		this.main = main;
@@ -55,6 +67,9 @@ public class ZleceniaController implements Controller {
         );
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void open() {
 		setToDefault();
@@ -69,7 +84,7 @@ public class ZleceniaController implements Controller {
 			database.zapiszZlecenia();
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logging.showErrorAlert(e.getMessage());
 		}
 	}
 
