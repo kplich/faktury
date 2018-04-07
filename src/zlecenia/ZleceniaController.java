@@ -29,7 +29,6 @@ public class ZleceniaController implements Controller {
 
     @Override
     public void initialize(Main main, Database database) {
-        System.out.println("ZleceniaController.initialize()");
 		this.main = main;
 		this.database = database;
 
@@ -58,8 +57,6 @@ public class ZleceniaController implements Controller {
 
 	@Override
 	public void open() {
-		System.out.println("ZleceniaController.open()");
-
 		setToDefault();
 
 		//wczytujemy elementy do listy
@@ -68,8 +65,6 @@ public class ZleceniaController implements Controller {
 
 	@Override
 	public void close() {
-		System.out.println("ZleceniaController.close()");
-
 		try {
 			database.zapiszZlecenia();
 		}
@@ -80,8 +75,6 @@ public class ZleceniaController implements Controller {
 
 	@Override
 	public void setToDefault() {
-		System.out.println("defaulting!");
-
 		//czyscimy zaznaczenie
 		listaZlecen.getSelectionModel().clearSelection();
 
@@ -101,7 +94,6 @@ public class ZleceniaController implements Controller {
 
 	@FXML
 	private void newButtonClicked() {
-		System.out.println("new button clicked");
 		listaZlecen.getSelectionModel().clearSelection();
 		listAnchor.setDisable(true);
 		enableBox(EditorState.NEW);
@@ -113,8 +105,6 @@ public class ZleceniaController implements Controller {
 
     @FXML
     private void editButtonClicked() {
-        System.out.println("edit button clicked");
-
         if(listaZlecen.getSelectionModel().getSelectedItem() != null) {
 			listAnchor.setDisable(true);
 			enableBox(EditorState.EDIT);
@@ -123,8 +113,6 @@ public class ZleceniaController implements Controller {
 
 	@FXML
 	private void deleteButtonClicked() {
-		System.out.println("delete button clicked");
-
 		if(listaZlecen.getSelectionModel().getSelectedItem() != null) {
 			int selectedIndex = listaZlecen.getSelectionModel().getSelectedIndex();
 			database.getZlecenia().remove(selectedIndex);
@@ -136,12 +124,15 @@ public class ZleceniaController implements Controller {
 
 	@FXML
 	private void saveButtonClicked() {
+    	//pobieramy wartości pól wpisane przez użytkownika
 		String numer = numerField.getText();
 		String nazwa = nazwaField.getText();
 		String wartosc = wartoscField.getText();
 
+		//zlecenie, ktore bedziemy dodawac
 		Zlecenie temp;
 
+		//albo dodajemy nowe zlecenie, albo uaktualniamy istniejące
 		switch (boxState) {
 			case NEW: {
 				try {
@@ -154,39 +145,41 @@ public class ZleceniaController implements Controller {
 				break;
 			}
 			case EDIT: {
+				//zapamietujemy, na ktorym miejscu znajduje sie zlecenie, ktore edytujemy
 				int selectedIndex = listaZlecen.getSelectionModel().getSelectedIndex();
-				Zlecenie copy = listaZlecen.getSelectionModel().getSelectedItem();
+
+				//zachowujemy kopie zlecenia na wypadek niepowodzenia
+				Zlecenie backUp = listaZlecen.getSelectionModel().getSelectedItem();
+
+				//usuwamy zlecenie z bazy
 				database.getZlecenia().remove(selectedIndex);
 
+				//probujemy dodac nowe zlecenie na miejscu poprzedniego
+				//jesli sie nie uda, dodajemy stare zlecenie spowrotem
 				try {
 					temp = Zlecenie.validate(numer, nazwa, wartosc);
 					database.dodajZlecenie(selectedIndex, temp);
 				}
 				catch (InvalidObjectException e) {
 					Logging.showErrorAlert(e.getMessage());
-
-					database.dodajZlecenie(selectedIndex, copy);
-					setToDefault();
-					return;
+					database.dodajZlecenie(selectedIndex, backUp);
 				}
-
 				break;
 			}
 		}
 
+		//ustawiamy nowa liste zlecen do wyswietlania
 		listaZlecen.setItems(FXCollections.observableArrayList(database.getZlecenia()));
 		setToDefault();
 	}
 
 	@FXML
 	private void cancelButtonClicked() {
-		System.out.println("cancel button clicked");
 		setToDefault();
 	}
 
 	@FXML
 	private void backButtonClicked() {
-		System.out.println("back button clicked");
 		main.switchScene("menu");
 	}
 
