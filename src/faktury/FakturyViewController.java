@@ -76,7 +76,7 @@ public class FakturyViewController implements Controller {
 			database.zapiszFaktury();
 		}
 		catch (FileNotFoundException e) {
-			Main.showAlert(e.getMessage());
+			Main.showErrorAlert(e.getMessage());
 		}
 	}
 

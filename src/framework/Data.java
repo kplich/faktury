@@ -1,5 +1,7 @@
 package framework;
 
+import javafx.scene.control.*;
+
 import java.io.*;
 import java.util.*;
 
@@ -28,12 +30,13 @@ public abstract class Data<T extends Comparable<T>> {
         while (mainScanner.hasNextLine()) {
             try {
 				lista.add(parseLine(mainScanner.nextLine()));
-            } catch (InvalidObjectException e) {
+            }
+            catch (InvalidObjectException e) {
                 System.err.println(e.getMessage());
                 System.err.println("linijka " + lineCount);
-            } finally {
+            }
+            finally {
                 ++lineCount;
-                //TODO: okienko potwierdzajace poprawnosc wczytania danych
             }
         }
     }

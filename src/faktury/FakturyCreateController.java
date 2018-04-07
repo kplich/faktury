@@ -153,7 +153,7 @@ public class FakturyCreateController implements Controller {
 			nowa = Faktura.validate(fields, database.getZlecenia(), database.getFaktury());
 		}
 		catch (InvalidObjectException e) {
-			Main.showAlert(e.getMessage());
+			Main.showErrorAlert(e.getMessage());
 			cancelButtonClicked();
 		}
 
