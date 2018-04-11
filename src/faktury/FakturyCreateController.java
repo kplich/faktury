@@ -132,8 +132,6 @@ public class FakturyCreateController implements Controller {
 
 	@FXML
 	private void saveButtonClicked() {
-		System.out.println("save button clicked");
-
 		//pobieramy dane
 		String idString = numerField.getText();
 		String dataWystString = dataWystField.getValue().toString();
@@ -165,6 +163,6 @@ public class FakturyCreateController implements Controller {
 
 	@FXML
 	private void cancelButtonClicked() {
-		main.switchScene("faktury_view");
+		main.switchScene(SceneID.FAKTURY_VIEW);
 	}
 }

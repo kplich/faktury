@@ -142,7 +142,6 @@ public class FakturyEditController implements Controller {
 
 	@FXML
 	private void saveButtonClicked() {
-		System.out.println("save button clicked");
 		String idString = numerField.getText();
 		String dataWystString = dataWystField.getValue().toString();
 		String dataSprzString = dataSprzField.getValue().toString();
@@ -161,14 +160,14 @@ public class FakturyEditController implements Controller {
 			nowa = Faktura.validate(fields, database.getZlecenia(), database.getFaktury());
 		}
 		catch (InvalidObjectException e) {
-			System.err.println(e.getMessage());
+			Logging.showErrorAlert(e.getMessage());
 			cancelButtonClicked();
 		}
 
 		editedFaktura.przeliczWartosc();
 		database.dodajFakture(editedIndex, nowa);
 
-		main.switchScene("faktury_view");
+		main.switchScene(SceneID.FAKTURY_VIEW);
 	}
 
 	@FXML
@@ -178,7 +177,7 @@ public class FakturyEditController implements Controller {
 			database.dodajFakture(editedIndex, editedFaktura);
 		}
 
-		main.switchScene("faktury_view");
+		main.switchScene(SceneID.FAKTURY_VIEW);
 	}
 
 	public void setState(EditorState state) {

@@ -8,11 +8,11 @@ public class MenuController implements Controller {
     private Main main;
 
     @FXML void fakturyClicked() {
-        main.switchScene("faktury_view");
+        main.switchScene(SceneID.FAKTURY_VIEW);
     }
 
     @FXML void zleceniaClicked() {
-        main.switchScene("zlecenia");
+        main.switchScene(SceneID.ZLECENIA);
     }
 
     @Override

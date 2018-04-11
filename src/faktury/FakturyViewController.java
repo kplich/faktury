@@ -87,7 +87,7 @@ public class FakturyViewController implements Controller {
 
     @FXML
     void newButtonClicked() {
-        main.switchScene("faktury_create");
+        main.switchScene(SceneID.FAKTURY_CREATE);
     }
 
     @FXML
@@ -96,13 +96,13 @@ public class FakturyViewController implements Controller {
 
         //przekazujemy informacje do kontrolera edytora
 		//TODO: napisac odpowiednia metode przekazujaca informacje
-		((FakturyEditController) main.getManager().getScene("faktury_edit").getController()).setState(EditorState.EDIT);
-		((FakturyEditController) main.getManager().getScene("faktury_edit").getController()).setEdited(temp);
-		((FakturyEditController) main.getManager().getScene("faktury_edit").getController()).setEditedIndex(
+		((FakturyEditController) main.getManager().getScene(SceneID.FAKTURY_EDIT).getController()).setState(EditorState.EDIT);
+		((FakturyEditController) main.getManager().getScene(SceneID.FAKTURY_EDIT).getController()).setEdited(temp);
+		((FakturyEditController) main.getManager().getScene(SceneID.FAKTURY_EDIT).getController()).setEditedIndex(
 		  fakturyTable.getSelectionModel().getSelectedIndex()
 		);
 
-		main.switchScene("faktury_edit");
+		main.switchScene(SceneID.FAKTURY_EDIT);
     }
 
     @FXML
@@ -122,7 +122,7 @@ public class FakturyViewController implements Controller {
 
     @FXML
     void backButtonClicked() {
-        main.switchScene("menu");
+        main.switchScene(SceneID.MENU);
     }
 
     @FXML
