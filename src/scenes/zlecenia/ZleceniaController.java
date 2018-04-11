@@ -33,27 +33,7 @@ public class ZleceniaController extends Controller {
 		this.main = main;
 		this.database = database;
 
-		//ustawiamy wyswietlanie danych scenes.zlecenia wraz z jego zaznaczeniem
-		listaZlecen.getSelectionModel().selectedItemProperty().addListener(
-          (observable, oldValue, newValue) -> {
-			  if (newValue == null) {
-				  numerField.setText(null);
-				  nazwaField.setText(null);
-				  wartoscField.setText(null);
-
-				  editButton.setDisable(true);
-				  deleteButton.setDisable(true);
-			  }
-              else {
-				  numerField.setText(String.valueOf(newValue.getNumer()));
-				  nazwaField.setText(newValue.getNazwa());
-				  wartoscField.setText(newValue.getWartosc().toString());
-
-				  editButton.setDisable(false);
-				  deleteButton.setDisable(false);
-			  }
-		  }
-        );
+		setUpSelectionModel();
 	}
 
 	/**
@@ -61,7 +41,21 @@ public class ZleceniaController extends Controller {
 	 */
 	@Override
 	public void open() {
-		setToDefault();
+		//czyscimy zaznaczenie
+		listaZlecen.getSelectionModel().clearSelection();
+
+		//usuwamy tekst z pol
+		numerField.setText(null);
+		nazwaField.setText(null);
+		wartoscField.setText(null);
+
+		//wylaczamy przyciski
+		editButton.setDisable(true);
+		deleteButton.setDisable(true);
+
+		//wylaczamy czesc z polami
+		listAnchor.setDisable(false);
+		disableBox();
 
 		//wczytujemy elementy do listy
 		listaZlecen.setItems(FXCollections.observableArrayList(database.getZlecenia()));
@@ -79,21 +73,7 @@ public class ZleceniaController extends Controller {
 
 	@Override
 	public void setToDefault() {
-		//czyscimy zaznaczenie
-		listaZlecen.getSelectionModel().clearSelection();
-
-		//usuwamy tekst z pol
-		numerField.setText(null);
-		nazwaField.setText(null);
-		wartoscField.setText(null);
-
-		//wylaczamy przyciski
-		editButton.setDisable(true);
-		deleteButton.setDisable(true);
-
-		//wylaczamy czesc z polami
-		listAnchor.setDisable(false);
-		disableBox();
+		//doNothing
 	}
 
 	@FXML
@@ -187,24 +167,28 @@ public class ZleceniaController extends Controller {
 		main.switchScene(SceneID.MENU);
 	}
 
-	private void disableBox() {
-    	numerField.setEditable(false);
-    	numerField.setMouseTransparent(true);
-    	numerField.setFocusTraversable(false);
+	//-----------HELPERS----------------------------------------------
+	private void setUpSelectionModel() {
+		//ustawiamy wyswietlanie danych zlecenia wraz z jego zaznaczeniem
+		listaZlecen.getSelectionModel().selectedItemProperty().addListener(
+		  (observable, oldValue, newValue) -> {
+			if (newValue == null) {
+				numerField.setText(null);
+				nazwaField.setText(null);
+				wartoscField.setText(null);
 
-    	nazwaField.setEditable(false);
-    	nazwaField.setMouseTransparent(true);
-    	nazwaField.setFocusTraversable(false);
+				editButton.setDisable(true);
+				deleteButton.setDisable(true);
+			}
+			else {
+				numerField.setText(String.valueOf(newValue.getNumer()));
+				nazwaField.setText(newValue.getNazwa());
+				wartoscField.setText(newValue.getWartosc().toString());
 
-    	wartoscField.setEditable(false);
-    	wartoscField.setMouseTransparent(true);
-    	wartoscField.setFocusTraversable(false);
-
-    	saveButton.setDisable(true);
-    	cancelButton.setDisable(true);
-
-
-    	boxState = EditorState.DISABLED;
+				editButton.setDisable(false);
+				deleteButton.setDisable(false);
+			}
+		});
 	}
 
 	private void enableBox(EditorState state) {
@@ -224,5 +208,25 @@ public class ZleceniaController extends Controller {
 		cancelButton.setDisable(false);
 
 		boxState = state;
+	}
+
+	private void disableBox() {
+		numerField.setEditable(false);
+		numerField.setMouseTransparent(true);
+		numerField.setFocusTraversable(false);
+
+		nazwaField.setEditable(false);
+		nazwaField.setMouseTransparent(true);
+		nazwaField.setFocusTraversable(false);
+
+		wartoscField.setEditable(false);
+		wartoscField.setMouseTransparent(true);
+		wartoscField.setFocusTraversable(false);
+
+		saveButton.setDisable(true);
+		cancelButton.setDisable(true);
+
+
+		boxState = EditorState.DISABLED;
 	}
 }

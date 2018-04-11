@@ -25,12 +25,12 @@ public class Main extends Application {
 	/**
 	 * File constant containing order data.
 	 */
-	private static final File PLIK_ZLECENIA = new File("data/scenes.zlecenia.txt");
+	private static final File PLIK_ZLECENIA = new File("data/zlecenia.txt");
 
 	/**
 	 * File constant containing invoice data.
 	 */
-	private static final File PLIK_FAKTURY = new File("data/scenes.faktury.txt");
+	private static final File PLIK_FAKTURY = new File("data/faktury.txt");
 
 	/**
 	 * Database.

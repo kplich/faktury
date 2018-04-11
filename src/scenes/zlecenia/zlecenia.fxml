@@ -59,7 +59,7 @@
             </SplitPane>
       <HBox alignment="CENTER" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0">
          <children>
-                        <Button fx:id="backButton" onAction="#backButtonClicked" text="Powrót do scenes.menu" />
+                        <Button fx:id="backButton" onAction="#backButtonClicked" text="Powrót do menu" />
          </children>
       </HBox>
       </VBox>

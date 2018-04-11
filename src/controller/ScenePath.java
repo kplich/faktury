@@ -9,7 +9,6 @@ public enum ScenePath {
 
 	private String path;
 
-
 	ScenePath(String path) {
 		this.path = path;
 	}

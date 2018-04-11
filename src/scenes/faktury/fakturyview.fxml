@@ -3,52 +3,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane minWidth="540.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.faktury.FakturyViewController">
-   <children>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox alignment="CENTER" maxHeight="40.0" prefHeight="40.0" VBox.vgrow="NEVER">
-               <children>
-                  <Label maxHeight="40.0" prefHeight="40.0" prefWidth="49.0" text="Faktury" textAlignment="CENTER" HBox.hgrow="NEVER">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <SplitPane prefHeight="340.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-              <items>
-                <AnchorPane fx:id="tablePane" minHeight="0.0" minWidth="240.0" prefHeight="160.0" prefWidth="250.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <TableView fx:id="fakturyTable" prefHeight="291.0" prefWidth="228.0" VBox.vgrow="ALWAYS">
-                                <columns>
-                                  <TableColumn fx:id="idColumn" prefWidth="46.0" text="ID" />
-                                  <TableColumn fx:id="dateColumn" prefWidth="113.0" text="Data wystawienia" />
-                                    <TableColumn fx:id="wartoscColumn" prefWidth="66.0" text="Wartość" />
-                                </columns>
-                              </TableView>
-                              <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0" VBox.vgrow="NEVER">
-                                 <children>
-                                  <Button fx:id="newButton" mnemonicParsing="false" onAction="#newButtonClicked" text="Nowa" />
-                                    <Button fx:id="editButton" mnemonicParsing="false" onAction="#editButtonClicked" text="Edytuj" />
-                                    <Button fx:id="printButton" mnemonicParsing="false" onAction="#printButtonClicked" text="Drukuj" />
-                                    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButtonClicked" text="Usuń" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-            <HBox alignment="CENTER" prefHeight="40.0" VBox.vgrow="NEVER">
-               <children>
-                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonClicked" text="Powrót do scenes.menu" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane minWidth="540.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.faktury.FakturyViewController">
+    <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER" maxHeight="40.0" prefHeight="40.0" VBox.vgrow="NEVER">
+            <Label maxHeight="40.0" prefHeight="40.0" prefWidth="49.0" text="Faktury" textAlignment="CENTER"
+                   HBox.hgrow="NEVER">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <SplitPane prefHeight="340.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+            <AnchorPane fx:id="tablePane" minHeight="0.0" minWidth="240.0" prefHeight="160.0" prefWidth="250.0"
+                        SplitPane.resizableWithParent="false">
+                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <children>
+                        <TableView fx:id="fakturyTable" prefHeight="291.0" prefWidth="228.0"
+                                   VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="idColumn" prefWidth="46.0" text="ID"/>
+                                <TableColumn fx:id="dateColumn" prefWidth="113.0" text="Data wystawienia"/>
+                                <TableColumn fx:id="wartoscColumn" prefWidth="66.0" text="Wartość"/>
+                            </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="40.0" spacing="10.0" VBox.vgrow="NEVER">
+                            <children>
+                                <Button fx:id="newButton" mnemonicParsing="false"
+                                        onAction="#newButtonClicked" text="Nowa"/>
+                                <Button fx:id="editButton" mnemonicParsing="false"
+                                        onAction="#editButtonClicked" text="Edytuj"/>
+                                <Button fx:id="printButton" mnemonicParsing="false"
+                                        onAction="#printButtonClicked" text="Drukuj"/>
+                                <Button fx:id="deleteButton" mnemonicParsing="false"
+                                        onAction="#deleteButtonClicked" text="Usuń"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </AnchorPane>
+        </SplitPane>
+        <HBox alignment="CENTER" prefHeight="40.0" VBox.vgrow="NEVER">
+            <children>
+                <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonClicked"
+                        text="Powrót do menu"/>
+            </children>
+        </HBox>
+    </VBox>
 </AnchorPane>
