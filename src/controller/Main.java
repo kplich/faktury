@@ -7,6 +7,9 @@ import javafx.stage.*;
 import java.io.*;
 import java.util.*;
 
+import static controller.SceneID.*;
+import static controller.ScenePath.*;
+
 /**
  * Entry-point class of the app.
  */
@@ -54,7 +57,7 @@ public class Main extends Application {
 
         stage = primaryStage; //boilerplate JavaFX?
 
-        switchScene("menu"); //ustawiamy scene na menu
+        switchScene(MENU); //ustawiamy scene na menu
 
         stage.show(); //odkrywamy interfejs
     }
@@ -70,7 +73,7 @@ public class Main extends Application {
 		}
 	}
 
-    public void switchScene(String id) {
+    public void switchScene(SceneID id) {
     	//zamykamy obecna scene (zapis danych, itp.) (zauwaz ze nie zmieniamy jeszcze referencji!)
 		if(manager.getCurrent() != null) {
 			manager.getCurrent().close();
@@ -78,11 +81,10 @@ public class Main extends Application {
 
 		//probujemy ustawic nowa scene
 		try {
-			manager.setCurrent(id); //TODO: enum dla ID scen
+			manager.setCurrent(id);
 		}
 		catch (NoSuchElementException e) {
 			Logging.showErrorAlert(e.getMessage());
-			return;
 		}
 
 		//otwieramy ja - ustawiamy domyslny stan pol, wczytujemy dane, itp.
@@ -120,11 +122,11 @@ public class Main extends Application {
 
 		//Nie wiem, jak sie zajac ta sekcja ;_;
 		try {
-			manager.registerScene("menu", new SceneWrapper("/menu/menu.fxml", this, database));
-			manager.registerScene("zlecenia", new SceneWrapper("/zlecenia/zlecenia.fxml", this, database));
-			manager.registerScene("faktury_view", new SceneWrapper("/faktury/fakturyview.fxml", this, database));
-			manager.registerScene("faktury_edit", new SceneWrapper("/faktury/fakturyedit.fxml", this, database));
-			manager.registerScene("faktury_create", new SceneWrapper("/faktury/fakturycreate.fxml", this, database));
+			manager.registerScene(MENU, new SceneWrapper(MENU_PATH, this, database));
+			manager.registerScene(ZLECENIA, new SceneWrapper(ZLECENIA_PATH, this, database));
+			manager.registerScene(FAKTURY_VIEW, new SceneWrapper(FAKTURY_VIEW_PATH, this, database));
+			manager.registerScene(FAKTURY_EDIT, new SceneWrapper(FAKTURY_EDIT_PATH, this, database));
+			manager.registerScene(FAKTURY_CREATE, new SceneWrapper(FAKTURY_CREATE_PATH, this, database));
 		}
 		catch (Exception e) {
 			Logging.showErrorAlert("Blad wczytywania sceny" + e.getCause().toString());

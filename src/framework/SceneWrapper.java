@@ -14,8 +14,8 @@ public class SceneWrapper {
 	private Controller controller;
     private Scene scene;
 
-    public SceneWrapper(String filename, Main main, Database database) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
+    public SceneWrapper(ScenePath path, Main main, Database database) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(path.getString()));
 		Parent root = loader.load();
 
 		controller = loader.getController();

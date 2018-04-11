@@ -1,5 +1,7 @@
 package framework;
 
+import controller.*;
+
 import java.util.*;
 
 /**
@@ -9,7 +11,7 @@ public class SceneManager {
 	/**
 	 * A map that holds all the scenes in the application. Each scene has its own identifying string.
 	 */
-	private HashMap<String, SceneWrapper> scenes = new HashMap<>();
+	private HashMap<SceneID, SceneWrapper> scenes = new HashMap<>();
 
 	/**
 	 * Currently viewed scene.
@@ -21,12 +23,12 @@ public class SceneManager {
 	 * @param id ID of the scene
 	 * @param scene scene to register
 	 */
-	public void registerScene(String id, SceneWrapper scene) {
+	public void registerScene(SceneID id, SceneWrapper scene) {
 		assert scene != null : "Podana scena jest pusta.";
 		scenes.put(id, scene);
 	}
 
-	public SceneWrapper getScene(String id) {
+	public SceneWrapper getScene(SceneID id) {
 		return scenes.get(id);
 	}
 
@@ -39,7 +41,7 @@ public class SceneManager {
 	 * @param id id of a scene the user wants to switch to
 	 * @throws NoSuchElementException when scene with a given ID doesn't exist
 	 */
-	public void setCurrent(String id) throws NoSuchElementException{
+	public void setCurrent(SceneID id) throws NoSuchElementException{
 		if(scenes.get(id) != null) {
 			current = scenes.get(id);
 		}
