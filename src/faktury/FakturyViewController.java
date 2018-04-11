@@ -30,8 +30,6 @@ public class FakturyViewController implements Controller {
 
 	@Override
 	public void initialize(Main main, Database database) {
-		System.out.println("FakturyViewController.initialze()");
-
 		this.main = main;
 		this.database = database;
 
@@ -59,8 +57,6 @@ public class FakturyViewController implements Controller {
 
 	@Override
 	public void open() {
-		System.out.println("FakturyViewController.open()");
-
 		setToDefault();
 
 		//wczytujemy dane
@@ -80,8 +76,6 @@ public class FakturyViewController implements Controller {
 
 	@Override
 	public void setToDefault() {
-		System.out.println("defaulting!");
-
 		//czyscimy zaznaczenie
 		fakturyTable.getSelectionModel().clearSelection();
 
@@ -93,14 +87,11 @@ public class FakturyViewController implements Controller {
 
     @FXML
     void newButtonClicked() {
-        System.out.println("new button clicked");
-
         main.switchScene("faktury_create");
     }
 
     @FXML
     void editButtonClicked() {
-        System.out.println("edit button clicked");
         Faktura temp = fakturyTable.getSelectionModel().getSelectedItem();
 
         //przekazujemy informacje do kontrolera edytora
@@ -116,8 +107,6 @@ public class FakturyViewController implements Controller {
 
     @FXML
     void deleteButtonClicked() {
-		System.out.println("delete button clicked");
-
 		int selected = fakturyTable.getSelectionModel().getSelectedIndex();
 		database.usunFakture(selected);
 		fakturyTable.setItems(FXCollections.observableArrayList(database.getFaktury()));
@@ -127,13 +116,12 @@ public class FakturyViewController implements Controller {
 			database.zapiszFaktury();
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logging.showErrorAlert(e.getMessage());
 		}
 	}
 
     @FXML
     void backButtonClicked() {
-		System.out.println("back button clicked");
         main.switchScene("menu");
     }
 
@@ -150,7 +138,7 @@ public class FakturyViewController implements Controller {
 			Desktop.getDesktop().open(new File("faktury/" + filename));
 		}
 		catch (IOException e) {
-			e.printStackTrace();
+			Logging.showErrorAlert(e.getMessage());
 		}
 	}
 

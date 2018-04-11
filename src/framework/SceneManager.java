@@ -2,6 +2,9 @@ package framework;
 
 import java.util.*;
 
+/**
+ * Class created to hold all the scenes it the program.
+ */
 public class SceneManager {
 	/**
 	 * A map that holds all the scenes in the application. Each scene has its own identifying string.
@@ -19,7 +22,7 @@ public class SceneManager {
 	 * @param scene scene to register
 	 */
 	public void registerScene(String id, SceneWrapper scene) {
-		Objects.requireNonNull(scene, "Podana scena jest pusta");
+		assert scene != null : "Podana scena jest pusta.";
 		scenes.put(id, scene);
 	}
 
@@ -33,9 +36,10 @@ public class SceneManager {
 
 	/**
 	 * If a scene with a given ID exists, it's being set as a current scene.
-	 * @param id
+	 * @param id id of a scene the user wants to switch to
+	 * @throws NoSuchElementException when scene with a given ID doesn't exist
 	 */
-	public void setCurrent(String id) {
+	public void setCurrent(String id) throws NoSuchElementException{
 		if(scenes.get(id) != null) {
 			current = scenes.get(id);
 		}

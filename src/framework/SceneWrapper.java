@@ -6,6 +6,10 @@ import javafx.scene.*;
 
 import java.io.*;
 
+/**
+ * Wrapper for a usual JavaFX Scene class. Created to enable sort of a protocol for switching scenes -
+ * - initializing, opening and closing.
+ */
 public class SceneWrapper {
 	private Controller controller;
     private Scene scene;

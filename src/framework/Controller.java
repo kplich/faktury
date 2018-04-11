@@ -3,6 +3,7 @@ package framework;
 import controller.*;
 
 public interface Controller {
+
 	/**
 	 * Method used to initialize a controller (sort of a constructor, only called ONCE).
 	 * Sets up all the mechanisms of each scene.
@@ -17,6 +18,7 @@ public interface Controller {
 	 */
 	void open();
 
+	//TODO: czy to cos jest potrzebne?
 	/**
 	 * A helper method for {@code open()} method.
 	 */
