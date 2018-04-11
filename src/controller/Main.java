@@ -15,22 +15,22 @@ import static controller.ScenePath.*;
  */
 public class Main extends Application {
 	//TODO: obslugiwac wyjatki, naprawde porzadnie
-	//TODO: dodawac faktury do pliku!!!
+	//TODO: dodawac scenes.faktury do pliku!!!
 	//TODO: poprawic grafike
-	//TODO: nowy sposob na tworzenie faktury poprzez zaznaczenie wielu zlecen na raz
-	//TODO: utworzyc foldery na faktury, szablony
+	//TODO: nowy sposob na tworzenie scenes.faktury poprzez zaznaczenie wielu zlecen na raz
+	//TODO: utworzyc foldery na scenes.faktury, szablony
 
     //TODO: ustalic formatowanie
 
 	/**
 	 * File constant containing order data.
 	 */
-	private static final File PLIK_ZLECENIA = new File("data/zlecenia.txt");
+	private static final File PLIK_ZLECENIA = new File("data/scenes.zlecenia.txt");
 
 	/**
 	 * File constant containing invoice data.
 	 */
-	private static final File PLIK_FAKTURY = new File("data/faktury.txt");
+	private static final File PLIK_FAKTURY = new File("data/scenes.faktury.txt");
 
 	/**
 	 * Database.
@@ -57,7 +57,7 @@ public class Main extends Application {
 
         stage = primaryStage; //boilerplate JavaFX?
 
-        switchScene(MENU); //ustawiamy scene na menu
+        switchScene(MENU); //ustawiamy scene na scenes.menu
 
         stage.show(); //odkrywamy interfejs
     }

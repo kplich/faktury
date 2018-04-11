@@ -1,4 +1,4 @@
-package faktury;
+package scenes.faktury;
 
 import java.io.*;
 import java.util.regex.*;
@@ -66,6 +66,6 @@ public class Id implements Comparable<Id> {
 
 			return new Id(numer, rok);
 		}
-		else throw new InvalidObjectException("Nieprawidlowy numer faktury");
+		else throw new InvalidObjectException("Nieprawidlowy numer scenes.faktury");
 	}
 }

@@ -1,7 +1,7 @@
-package faktury;
+package scenes.faktury;
 
 import javafx.beans.property.*;
-import zlecenia.*;
+import scenes.zlecenia.*;
 
 import java.io.*;
 import java.math.*;

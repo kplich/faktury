@@ -1,4 +1,4 @@
-package zlecenia;
+package scenes.zlecenia;
 
 import controller.*;
 import framework.*;
@@ -9,17 +9,7 @@ import javafx.scene.layout.*;
 
 import java.io.*;
 
-public class ZleceniaController implements Controller {
-	/**
-	 * A reference to the Main class, used in order to switch scenes.
-	 */
-	private Main main;
-
-	/**
-	 * A reference to the database containing all the orders and invoices.
-	 */
-	private Database database;
-
+public class ZleceniaController extends Controller {
 	@FXML private ListView<Zlecenie> listaZlecen;
 
 	@FXML private TextField numerField;
@@ -39,12 +29,11 @@ public class ZleceniaController implements Controller {
 	 * @param main a reference to the main application class
 	 * @param database a reference to the database
 	 */
-    @Override
     public void initialize(Main main, Database database) {
 		this.main = main;
 		this.database = database;
 
-		//ustawiamy wyswietlanie danych zlecenia wraz z jego zaznaczeniem
+		//ustawiamy wyswietlanie danych scenes.zlecenia wraz z jego zaznaczeniem
 		listaZlecen.getSelectionModel().selectedItemProperty().addListener(
           (observable, oldValue, newValue) -> {
 			  if (newValue == null) {
@@ -163,7 +152,7 @@ public class ZleceniaController implements Controller {
 				//zapamietujemy, na ktorym miejscu znajduje sie zlecenie, ktore edytujemy
 				int selectedIndex = listaZlecen.getSelectionModel().getSelectedIndex();
 
-				//zachowujemy kopie zlecenia na wypadek niepowodzenia
+				//zachowujemy kopie scenes.zlecenia na wypadek niepowodzenia
 				Zlecenie backUp = listaZlecen.getSelectionModel().getSelectedItem();
 
 				//usuwamy zlecenie z bazy
@@ -195,7 +184,7 @@ public class ZleceniaController implements Controller {
 
 	@FXML
 	private void backButtonClicked() {
-		main.switchScene("menu");
+		main.switchScene(SceneID.MENU);
 	}
 
 	private void disableBox() {

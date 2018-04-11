@@ -1,20 +1,17 @@
-package faktury;
+package scenes.faktury;
 
 import controller.*;
 import framework.*;
 import javafx.collections.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import zlecenia.*;
+import scenes.zlecenia.*;
 
 import java.io.*;
 import java.math.*;
 import java.util.*;
 
-public class FakturyCreateController implements Controller {
-	private Main main;
-	private Database database;
-
+public class FakturyCreateController extends Controller {
 	@FXML private TextField numerField;
 	@FXML private DatePicker dataWystField;
 	@FXML private DatePicker dataSprzField;
@@ -51,9 +48,7 @@ public class FakturyCreateController implements Controller {
 
 	@Override
 	public void open() {
-		System.out.println("faktury create open");
-
-		//pobieramy nieuzyte zlecenia
+		//pobieramy nieuzyte scenes.zlecenia
 		zleceniaNieuzyteField.setItems(FXCollections.observableArrayList(database.getNieuzyteZlecenia()));
 
 		setToDefault();
@@ -63,15 +58,13 @@ public class FakturyCreateController implements Controller {
 
 	@Override
 	public void close() {
-		System.out.println("faktury create close");
-
 		//zamykajac scene, zapisujemy dane
 		try {
 			database.zapiszZlecenia();
 			database.zapiszFaktury();
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logging.showErrorAlert(e.getMessage());
 		}
 
 		//ustawiamy odpowiednio stan sceny edytora

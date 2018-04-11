@@ -1,7 +1,7 @@
 package controller;
 
-import faktury.*;
-import zlecenia.*;
+import scenes.faktury.*;
+import scenes.zlecenia.*;
 
 import java.io.*;
 import java.util.*;

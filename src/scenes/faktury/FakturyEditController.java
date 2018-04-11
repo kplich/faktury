@@ -1,20 +1,17 @@
-package faktury;
+package scenes.faktury;
 
 import controller.*;
 import framework.*;
 import javafx.collections.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import zlecenia.*;
+import scenes.zlecenia.*;
 
 import java.io.*;
 import java.math.*;
 import java.util.*;
 
-public class FakturyEditController implements Controller {
-	private Main main;
-	private Database database;
-
+public class FakturyEditController extends Controller {
 	@FXML private TextField numerField;
 	@FXML private DatePicker dataWystField;
 	@FXML private DatePicker dataSprzField;
@@ -56,10 +53,10 @@ public class FakturyEditController implements Controller {
 
 	@Override
 	public void open() {
-		//pobieramy nieuzyte zlecenia
+		//pobieramy nieuzyte scenes.zlecenia
 		zleceniaNieuzyteField.setItems(FXCollections.observableArrayList(database.getNieuzyteZlecenia()));
 
-		//otwieramy scene z zamiarem edycji - pobieramy dane z faktury
+		//otwieramy scene z zamiarem edycji - pobieramy dane z scenes.faktury
 		editedZlecenia = editedFaktura.getZlecenia();
 		zleceniaList.setItems(FXCollections.observableArrayList(editedZlecenia));
 

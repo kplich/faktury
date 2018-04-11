@@ -1,4 +1,4 @@
-package faktury;
+package scenes.faktury;
 
 import controller.*;
 import framework.*;
@@ -14,10 +14,8 @@ import java.io.*;
 import java.math.*;
 import java.time.*;
 
-public class FakturyViewController implements Controller {
-    private Main main;
-    private Database database;
-
+public class FakturyViewController extends Controller {
+	//TODO: wyswietlac wiecej danych o fakturze
     @FXML private TableView<Faktura> fakturyTable;
     @FXML private TableColumn<Faktura, Id> idColumn;
     @FXML private TableColumn<Faktura, LocalDate> dateColumn;
@@ -27,8 +25,6 @@ public class FakturyViewController implements Controller {
     @FXML private Button deleteButton;
     @FXML private Button printButton;
 
-
-	@Override
 	public void initialize(Main main, Database database) {
 		this.main = main;
 		this.database = database;
@@ -132,10 +128,10 @@ public class FakturyViewController implements Controller {
 		TextFile fakturaFile = TextFile.generateFaktura(selected);
 
 		String filename = (selected.getId().toString()).replace('/', '_') + ".html"; TextFile.save(fakturaFile,
-		  "faktury/" + filename);
+		  "scenes/faktury/" + filename);
 
 		try {
-			Desktop.getDesktop().open(new File("faktury/" + filename));
+			Desktop.getDesktop().open(new File("scenes/faktury/" + filename));
 		}
 		catch (IOException e) {
 			Logging.showErrorAlert(e.getMessage());

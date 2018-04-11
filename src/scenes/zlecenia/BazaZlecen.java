@@ -1,4 +1,4 @@
-package zlecenia;
+package scenes.zlecenia;
 
 import framework.*;
 
@@ -64,9 +64,9 @@ public class BazaZlecen extends Data<Zlecenie> {
 	/**
 	 * Metoda sprawdza czy zlecenie o podanym numerze znajduje sie w bazie.
 	 *
-	 * @param numer - numer zlecenia, ktorego szukamy
+	 * @param numer - numer scenes.zlecenia, ktorego szukamy
 	 * @return true, jesli zlecenie o podanym numerze jest juz w bazie,
-	 * 		   false, jesli zlecenia niema
+	 * 		   false, jesli scenes.zlecenia niema
 	 */
 	public boolean zawieraZlecenie(int numer) {
     	for(Zlecenie z: lista) {

@@ -1,7 +1,7 @@
-package faktury;
+package scenes.faktury;
 
 import framework.*;
-import zlecenia.*;
+import scenes.zlecenia.*;
 
 import java.io.*;
 import java.util.*;

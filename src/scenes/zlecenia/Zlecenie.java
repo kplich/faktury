@@ -1,6 +1,6 @@
-package zlecenia;
+package scenes.zlecenia;
 
-import faktury.*;
+import scenes.faktury.*;
 import javafx.beans.property.*;
 
 import java.io.*;
@@ -21,12 +21,12 @@ public class Zlecenie implements Comparable<Zlecenie> {
     private Id fakturaWykorzystujaca;
 
 	/**
-	 * Konstruktor prywatny - zlecenia mozna stworzyc jedynie poprzez metode validate();
+	 * Konstruktor prywatny - scenes.zlecenia mozna stworzyc jedynie poprzez metode validate();
 	 * Na podstawie danych oblicza takze wartosc podatku, oraz wartosc brutto.
 	 *
-	 * @param numer - numer zlecenia
-	 * @param nazwa - opis zlecenia
-	 * @param wartosc - wartosc zlecenia - liczba z dwoma miejscami po przecinku
+	 * @param numer - numer scenes.zlecenia
+	 * @param nazwa - opis scenes.zlecenia
+	 * @param wartosc - wartosc scenes.zlecenia - liczba z dwoma miejscami po przecinku
 	 */
 	private Zlecenie(int numer, String nazwa, BigDecimal wartosc) {
         this.numer = new SimpleIntegerProperty(numer);
@@ -78,8 +78,8 @@ public class Zlecenie implements Comparable<Zlecenie> {
 	/**
 	 * Metoda sprawdzajaca poprawnosc danych opisujacych zlecenie
 	 *
-	 * @param numer - string zawierajacy numer zlecenia - musi parsowac sie jako int
-	 * @param nazwa - opis zlecenia
+	 * @param numer - string zawierajacy numer scenes.zlecenia - musi parsowac sie jako int
+	 * @param nazwa - opis scenes.zlecenia
 	 * @param wartosc - liczba z dwoma miejscami po przecinku
 	 * @return obiekt typu Zlecenie, zainicjalizowany podanymi danymi
 	 * @throws InvalidObjectException
@@ -91,15 +91,15 @@ public class Zlecenie implements Comparable<Zlecenie> {
 			num = Integer.parseInt(numer);
 		}
 		catch (NumberFormatException e) {
-			throw new InvalidObjectException("Nieprawidlowy numer zlecenia.");
+			throw new InvalidObjectException("Nieprawidlowy numer scenes.zlecenia.");
 		}
 
 		String regex = "^\\d+[,.]\\d{2}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(wartosc);
 
-		//sprawdzamy czy wprowadzono poprawna wartosc zlecenia
-		if (!matcher.matches()) throw new InvalidObjectException("Nieprawidlowa wartosc zlecenia");
+		//sprawdzamy czy wprowadzono poprawna wartosc scenes.zlecenia
+		if (!matcher.matches()) throw new InvalidObjectException("Nieprawidlowa wartosc scenes.zlecenia");
 
 		//jesli potrzeba, zamieniamy separator dziesietny na kropke (do zamiany na BigDecimal)
 		wartosc = wartosc.replace(',', '.');

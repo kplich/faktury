@@ -17,7 +17,7 @@ public abstract class Data<T extends Comparable<T>> {
 			wczytaj(plik); //tu moze zostac rzucony wyjatek FNF
 		}
 		catch (FileNotFoundException e) {
-			//zakladamy ze nie dzialaja zlecenia, w razie czego wyjatek zostanie zmieniony w konstruktorze bazy faktur
+			//zakladamy ze nie dzialaja scenes.zlecenia, w razie czego wyjatek zostanie zmieniony w konstruktorze bazy faktur
 			throw new FileNotFoundException("Blad przy wczytywaniu zlecen.");
 		}
         Collections.sort(lista);

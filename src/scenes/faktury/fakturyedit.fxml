@@ -4,13 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane minWidth="540.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="faktury.FakturyEditController">
+<AnchorPane minWidth="540.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.faktury.FakturyEditController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" maxHeight="40.0" prefHeight="40.0" VBox.vgrow="NEVER">
                <children>
-                  <Label alignment="CENTER" maxHeight="40.0" prefHeight="40.0" prefWidth="159.0" text="Edycja faktury" HBox.hgrow="NEVER">
+                  <Label alignment="CENTER" maxHeight="40.0" prefHeight="40.0" prefWidth="159.0" text="Edycja scenes.faktury" HBox.hgrow="NEVER">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -54,7 +54,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="Dodane zlecenia:">
+                  <Label text="Dodane scenes.zlecenia:">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

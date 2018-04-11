@@ -1,23 +1,19 @@
-package menu;
+package scenes.menu;
 
 import controller.*;
 import framework.*;
 import javafx.fxml.*;
 
-public class MenuController implements Controller {
-    private Main main;
+public class MenuController extends Controller {
 
-    @FXML void fakturyClicked() {
+    @FXML
+	void fakturyClicked() {
         main.switchScene(SceneID.FAKTURY_VIEW);
     }
 
-    @FXML void zleceniaClicked() {
+    @FXML
+	void zleceniaClicked() {
         main.switchScene(SceneID.ZLECENIA);
-    }
-
-    @Override
-    public void initialize(Main main, Database database) {
-		this.main = main;
     }
 
     @Override
